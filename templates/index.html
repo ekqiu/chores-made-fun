@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="static/styles.css">
+
+<head>
+    <title>Chore List</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a chore!</h1>
+        <form method="POST">
+            <input type="text" name="chore" required>
+            <input type="submit" value="Add Chore">
+        </form>
+        <div class="card">
+            <h2>Your Chores</h2>
+            <ul>
+                {% for chore in chores %}
+                <li>
+                    {{ chore }}
+                    <form action="{{ url_for('delete', chore_id=loop.index0) }}" method="POST" style="display:inline;">
+                        <input type="submit" value="X" id="delete">
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <footer>
+            <p>Created by <a href="https://ekqiu.github.io/">Evan Khee</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
