@@ -26,10 +26,16 @@
                 {% endfor %}
             </ul>
         </div>
+        <button id="spin-button">Spin the wheel!</button>
+        <canvas id="wheel" width="500" height="500"></canvas>
         <footer>
             <p>Created by <a href="https://ekqiu.github.io/">Evan Khee</a></p>
         </footer>
     </div>
+<script type="text/javascript">
+    var chores = {{ chores| tojson | safe }};
+</script>
+    <script src='static/script.js'></script>
 </body>
 
 </html>
